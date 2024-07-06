@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2024-07-06T06:42:06Z"
+  labels:
+    run: nginx-load-balancer
+  name: nginx-load-balancer
+  namespace: default
+  resourceVersion: "4746"
+  uid: 79a08468-a1b8-496a-82aa-2be76b832ec7
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.111.169.6
+  clusterIPs:
+  - 10.111.169.6
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 31272
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: nginx-load-balancer
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}

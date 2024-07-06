@@ -1,0 +1,12 @@
+application-pod -> will connect to its external-svc
+
+- we have defined the external service to use - my-database-service's database-namespace's svc.cluster.local
+
+- so in this way the application-pod will contact the another namespace's service
+
+
+Steps: 
+1. deploy the db - in the database namespace
+2. expose the service
+3. expose the service which contacts with the service of the first namespace
+4. build the app and run the pod of the service
